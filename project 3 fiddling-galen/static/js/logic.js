@@ -66,7 +66,7 @@ function createMap(markerLayer) {
     var meteoriteMap = L.map("map-id", {
         center: [40.73, -74.0059],
         zoom: 3,
-        layers: [street]
+        layers: [street, markerLayer]
     });
 
     console.log(meteoriteMap);
