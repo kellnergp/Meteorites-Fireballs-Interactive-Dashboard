@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charstet="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Meteorites and Fireballs Homepage</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+    </head>
+
+    <body>
+        <div class="jumbotron text-center" style="background-color:black; color:white; width:100">
+            <div class="container">
+                <h1>Meteorites and Fireballs</h1>
+                <a href="data.html" class="btn btn-info btn-lg" role="button">Data</a>
+                <a href="map.html" class="btn btn-info btn-lg" role="button">Maps</a>
+            </div>
+        </div>
+
+        <div class="row"
+        <div class"col-md-12">
+          <h1></h1>
+        </div>
+        <div class="row"
+          <div id="column1" class="col-sm-6">
+            <div class="panel panel-default" style="width:750px; height:500px; float:left; margin-left: 20px; background-color:black; color:white;">
+              <div class="panel-heading text-center" style="background-color:black; color:white;"><b><font size = "6" font color ="lime"><p>What is a meteor?</br>
+                A space rock that becomes so hot it glows when it passes into Earth’s atmosphere</br>
+                
+                What is a meteorite?</br>
+                A meteor that survives a trip through the atmosphere and hits the ground.</br>
+             
+                </p></font></b></div>
+              <div class= "panel-body">
+                <img src="{{image1}}" atl="Meteorite image">
+              </div>
+            </br>
+            </div>
+        
+          <div id="column2" class="col-sm-6">
+            <div class="panel panel-default" style="width:750px; height:500px; float:right; margin-right: 10px; background-color:black; color:white;">
+              <div class="panel-heading text-center" style="background-color:black; color:white;"><b><font size = "6" font color ="lime"><p>What is a fireball?</br>
+                An exceptionally bright meteor that is spectacular enough to to be seen over a very wide area (also known as bolides).</br>
+                </p></font></b></div>
+              <div class= "panel-body">
+                <img src="{{image2}}" atl="Fireball image">
+              </div>
+            </br>
+            </div>
+      </div>
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="logic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    </body>
+</html>
