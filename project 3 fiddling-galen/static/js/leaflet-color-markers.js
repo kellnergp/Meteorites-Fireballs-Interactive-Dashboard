@@ -1,3 +1,6 @@
+// Source GH Link : https://github.com/pointhi/leaflet-color-markers
+
+// License
 /* BSD 2-Clause License
 
 Copyright (c) 2010-2019, Vladimir Agafonkin
