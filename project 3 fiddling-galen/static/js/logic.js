@@ -7,7 +7,7 @@ d3.json(url).then(function(data) {
     var locations;
 
     /* for (let j=0; j<data.length; j++) {
-        console.log(data[j].id, data[j].geolocation);
+        console.log(data[j].id, data[j].year);
     } */
     createMarkers(data);
     
