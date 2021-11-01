@@ -45,17 +45,37 @@ function createMarkers(data) {
             var longitude = Number(meteorite.geolocation.longitude);
             var location = [latitude, longitude];
 
-            var marker = L.marker(location)
-                .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+            /* var marker = L.marker(location, {icon: greenIcon})
+                .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>"); */
 
             //markers.push(marker);
 
             // divy up markers into different lists based on year
-            if (justYear < 1700) {pre17Markers.push(marker);}
-            else if (justYear >= 1700 && justYear < 1800) {c17Markers.push(marker);}
-            else if (justYear >= 1800 && justYear < 1900) {c18Markers.push(marker);}
-            else if (justYear >= 1900 && justYear < 2000) {c19Markers.push(marker);}
-            else if (justYear >= 2000) {c20Markers.push(marker);}
+            if (justYear < 1700) {
+                    var marker = L.marker(location, {icon: greenIcon})
+                        .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                    pre17Markers.push(marker);
+            }
+            else if (justYear >= 1700 && justYear < 1800) {
+                var marker = L.marker(location, {icon: yellowIcon})
+                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                c17Markers.push(marker);
+            }
+            else if (justYear >= 1800 && justYear < 1900) {
+                var marker = L.marker(location, {icon: blueIcon})
+                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                c18Markers.push(marker);
+            }
+            else if (justYear >= 1900 && justYear < 2000) {
+                var marker = L.marker(location, {icon: orangeIcon})
+                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                c19Markers.push(marker);
+            }
+            else if (justYear >= 2000) {
+                var marker = L.marker(location, {icon: redIcon})
+                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                c20Markers.push(marker);
+            }
         }
 
         
