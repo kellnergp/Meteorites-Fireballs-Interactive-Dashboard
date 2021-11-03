@@ -3,7 +3,7 @@ function optionChanged(idNum) {
     console.log(idNum);
 
     // Read in samples.json with D3 library
-    d3.csv("./Resources/").then(function(data) {
+    d3.csv("./Resources/Cleaned_Fireball_Data_CNEOS.csv").then(function(data) {
 
         // Pull metadata values for matching subject ID Number
         metadata = Object.values(data.metadata.filter(function(findMeta) {
