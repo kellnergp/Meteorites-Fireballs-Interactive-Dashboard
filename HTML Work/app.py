@@ -29,7 +29,9 @@ fireball_dict.insert_many(fireball_data.to_dict('records'))
 
 # Pull dataframes from mongo database for use
 meteorites = pd.DataFrame(list(meteorite_dict.find()))
+meteorites = meteorites.to_json(orient='index')
 fireballs = pd.DataFrame(list(fireball_dict.find()))
+fireballs = fireballs.to_json(orient='index')
 # Route that renders index.html template
 @app.route("/")
 def echo():
