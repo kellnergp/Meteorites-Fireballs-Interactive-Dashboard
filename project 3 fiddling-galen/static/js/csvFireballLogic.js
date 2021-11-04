@@ -56,6 +56,8 @@ function createMarkers(data) {
         var radiated = fireball['Total Radiated Energy (J)'];
         var velocity = fireball['Velocity (km/s)'];
 
+        console.log(date);
+
         var marker = L.marker(location)
             .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
                 + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
