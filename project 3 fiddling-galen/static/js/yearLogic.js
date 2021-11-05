@@ -1,25 +1,14 @@
-const url = "https://data.nasa.gov/resource/gh4g-9sfh.json";
+getMeteorites();
 
-d3.json(url).then(function(data) {
-    console.log(data[0].geolocation.latitude);
+function getMeteorites() {
+    const url = "https://data.nasa.gov/resource/gh4g-9sfh.json";
 
-    var names;
-    var locations;
-
-    /* for (let j=0; j<data.length; j++) {
-        if (data[j].year) {
-            
-                var year = data[j].year.slice(0,4);
-                console.log(data[j].id, year);
-            
-            
-        }
+    d3.json(url).then(function(data) {
+        console.log(data[0].geolocation.latitude);
+        createMarkers(data);
         
-    } */
-    createMarkers(data);
-    
-});
-
+    });
+}
 function createMarkers(data) {
     var markers = [];
     var pre17Markers = [];
@@ -98,6 +87,13 @@ function createMarkers(data) {
 }
 
 function createMap(layerList) {
+    // if the fireball map exists, remove it
+    //if (fireballMap) {fireballMap.remove();}
+    var container = L.DomUtil.get('map-id');
+      if(container != null){
+        container._leaflet_id = null;
+      }
+
     // Create the tile layer that will be the background of our map.
     var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -123,9 +119,10 @@ function createMap(layerList) {
         center: [40.73, -74.0059],
         zoom: 3,
         layers: [street, layerList[0]]
-    });
+    }); 
 
-    console.log(meteoriteMap);
+    //console.log(meteoriteMap);
     // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
     L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(meteoriteMap); 
+
 }
