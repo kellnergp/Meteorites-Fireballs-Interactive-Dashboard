@@ -15,14 +15,17 @@ body,
   display: none;
 }
 
-#test {
+
+#mtitle {
   display:block;
 }
-
 #map-id-m {
   display: block;
 }
 
 #map-id-f {
   display:none;
+}
+#fbtitle {
+  display: none;
 }

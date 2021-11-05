@@ -27,21 +27,22 @@
     <div class="container-fluid">
         <div class="jumbotron text-center">
         <h1>Meteorite/Fireball Map</h1>
-        <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-m', 'map-id-f')" role="button">Meteorites</a></p>
-        <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-f', 'map-id-m')" role="button">Fireballs</a></p>
+        <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-m', 'map-id-f')" role="button">Toggle Meteorites/Fireballs</a></p>
+        <!-- <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-f', 'map-id-m')" role="button">Fireballs</a></p> -->
         </div>
     </div>
-    <h1 id="test">Testing this bullshit</h1>
+    <h1 id="mtitle">Meteorites</h1>
+    <h1 id="fbtitle">Fireballs</h1>
       <!-- The div that holds our map -->
       <div class="map-m" id="map-id-m"></div>
       <div class="map-f" id="map-id-f"></div>
 
+  <script>
+    var mMap;
+    var fMap;
+  </script>
   <!-- js file for meteorite map layered by century -->
   <script type="text/javascript" src="static/js/yearLogic.js"></script>
-  <!-- js file for fireball map of json data pull -->
-  <!-- <script type="text/javascript" src="static/js/fireballLogic.js"></script> -->
-  <!-- js file for fireball map based on expanded csv dataset-->
-  <!-- <script type="text/javascript" src="static/js/csvFireballLogic.js"></script> -->
   <!-- js file for expanded fireball map broken into decade layers-->
   <script type="text/javascript" src="static/js/csvFbYearLogic.js"></script>
   <!-- Leaflet Color Markings Script -->
@@ -49,34 +50,35 @@
 
   <script>
 
-    let mMap = getMeteorites();
-    var fMap = getFireballs();
+    mMap = getMeteorites();
+    fMap = getFireballs();
+    console.log(fMap);
 
     function hideToggle(selectedMap, otherMap) {
       var selected = document.getElementById(selectedMap);
-      console.log(selected);
       var other = document.getElementById(otherMap);
+
+      var mtitle = document.getElementById("mtitle");
+      var fbtitle = document.getElementById("fbtitle");
+
       if (selected.style.display === "none") {
           selected.style.display = "block";
+          mtitle.style.display = "block";
+
           other.style.display = "none";
+          fbtitle.style.display = "none";
 
       } else {
           selected.style.display = "none";
+          mtitle.style.display = "none";
+
           other.style.display = "block";
+          fbtitle.style.display = "block";
       }
-      
+      console.log(mMap);
       }
 
-    function toggleOnFireball() {
-      
-      var x = document.getElementById("map-id-f");
-      console.log(x);
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
+
   </script>
 
 </body>
