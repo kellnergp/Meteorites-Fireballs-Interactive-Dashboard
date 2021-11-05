@@ -27,12 +27,14 @@
     <div class="container-fluid">
         <div class="jumbotron text-center">
         <h1>Meteorite/Fireball Map</h1>
-        <p><a class="btn btn-primary btn-lg" onclick="getMeteorites()" role="button">Meteorites</a></p>
-        <p><a class="btn btn-primary btn-lg" onclick="getFireballs()" role="button">Fireballs</a></p>
+        <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-m', 'map-id-f')" role="button">Meteorites</a></p>
+        <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-f', 'map-id-m')" role="button">Fireballs</a></p>
         </div>
     </div>
+    <h1 id="test">Testing this bullshit</h1>
       <!-- The div that holds our map -->
-      <div id="map-id"></div>
+      <div class="map-m" id="map-id-m"></div>
+      <div class="map-f" id="map-id-f"></div>
 
   <!-- js file for meteorite map layered by century -->
   <script type="text/javascript" src="static/js/yearLogic.js"></script>
@@ -44,6 +46,38 @@
   <script type="text/javascript" src="static/js/csvFbYearLogic.js"></script>
   <!-- Leaflet Color Markings Script -->
   <script type="text/javascript" src="static/js/leaflet-color-markers.js"></script>
+
+  <script>
+
+    let mMap = getMeteorites();
+    var fMap = getFireballs();
+
+    function hideToggle(selectedMap, otherMap) {
+      var selected = document.getElementById(selectedMap);
+      console.log(selected);
+      var other = document.getElementById(otherMap);
+      if (selected.style.display === "none") {
+          selected.style.display = "block";
+          other.style.display = "none";
+
+      } else {
+          selected.style.display = "none";
+          other.style.display = "block";
+      }
+      
+      }
+
+    function toggleOnFireball() {
+      
+      var x = document.getElementById("map-id-f");
+      console.log(x);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 

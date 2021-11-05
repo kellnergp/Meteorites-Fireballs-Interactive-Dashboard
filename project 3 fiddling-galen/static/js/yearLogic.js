@@ -1,4 +1,4 @@
-getMeteorites();
+//getMeteorites();
 
 function getMeteorites() {
     const url = "https://data.nasa.gov/resource/gh4g-9sfh.json";
@@ -89,22 +89,22 @@ function createMarkers(data) {
 function createMap(layerList) {
     // if the fireball map exists, remove it
     //if (fireballMap) {fireballMap.remove();}
-    var container = L.DomUtil.get('map-id');
+   /*  var container = L.DomUtil.get('map-id');
       if(container != null){
         container._leaflet_id = null;
-      }
+      } */
 
     // Create the tile layer that will be the background of our map.
     var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
-    console.log(street);
+    //console.log(street);
 
     // Create a baseMaps object to hold the lightmap layer.
     var baseMaps = {
         Street: street
     };
-    console.log(baseMaps);
+    //console.log(baseMaps);
     // Create an overlayMaps object to hold the meteorite layers.
     var overlayMaps = {
         "Pre 1700s Meteorites": layerList[0],
@@ -113,11 +113,11 @@ function createMap(layerList) {
         "1900s Meteorites": layerList[3],
         "2000s Meteorites": layerList[4]
     };
-    console.log(overlayMaps);
+    //console.log(overlayMaps);
     // Create the map object with options.
-    var meteoriteMap = L.map("map-id", {
-        center: [40.73, -74.0059],
-        zoom: 3,
+    var meteoriteMap = L.map("map-id-m", {
+        center: [0.00, 0.00],
+        zoom: 2,
         layers: [street, layerList[0]]
     }); 
 
@@ -125,4 +125,5 @@ function createMap(layerList) {
     // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
     L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(meteoriteMap); 
 
+    return meteoriteMap;
 }

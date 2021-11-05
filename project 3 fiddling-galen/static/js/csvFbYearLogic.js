@@ -6,7 +6,7 @@ function getFireballs() {
     const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/HTML%20Work/Resources/Cleaned_Fireball_Data_CNEOS.csv";
 
     d3.csv(url).then(function(data){
-        console.log(data);
+        //console.log(data);
 
         /* for (let i=0; i<data.length; i++) {
             var fireball = data[i];
@@ -67,11 +67,11 @@ function createFbMarkers(data) {
         var radiated = fireball['Total Radiated Energy (J)'];
         var velocity = fireball['Velocity (km/s)'];
 
-        console.log(i, date, typeof date);
+        //console.log(i, date, typeof date);
 
         // pull just the year into a separate variable
         var justYear = date.getFullYear();
-        console.log(typeof justYear);
+        //console.log(typeof justYear);
 
         // conditionals to divide markers by decade
         if (justYear < 2000) {
@@ -126,16 +126,16 @@ function createFbMarkers(data) {
 
 function createFbMap(markerLayers) {
     // if the map is already initialized, remove it
-    var container = L.DomUtil.get('map-id');
+  /*   var container = L.DomUtil.get('map-id');
       if(container != null){
         container._leaflet_id = null;
-      }
+      } */
 
     // Create the tile layer that will be the background of our map.
     var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
-    console.log(street);
+    //console.log(street);
 
     // Create a baseMaps object to hold the lightmap layer.
     var baseMaps = {
@@ -151,7 +151,7 @@ function createFbMap(markerLayers) {
     };
     //console.log(overlayMaps);
     // Create the map object with options.
-    var fireballMap = L.map("map-id", {
+    var fireballMap = L.map("map-id-f", {
         center: [0.00, 0.00],
         zoom: 2,
         layers: [street, markerLayers[0]]
@@ -161,4 +161,5 @@ function createFbMap(markerLayers) {
     // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
     L.control.layers(baseMaps, overlayMapsF, {collapsed: false}).addTo(fireballMap); 
 
+    return fireballMap;
 }
