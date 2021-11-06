@@ -125,11 +125,6 @@ function createFbMarkers(data) {
 }
 
 function createFbMap(markerLayers) {
-    // if the map is already initialized, remove it
-  /*   var container = L.DomUtil.get('map-id');
-      if(container != null){
-        container._leaflet_id = null;
-      } */
 
     // Create the tile layer that will be the background of our map.
     var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

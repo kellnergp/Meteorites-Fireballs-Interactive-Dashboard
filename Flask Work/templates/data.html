@@ -39,8 +39,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div id="bullet"></div>
+                <div id="column1" class="col-md-auto">
+                    <div class="panel panel-default" style="width:50px; height:50px; float:left; margin-left: 10px; background-color:black; color:white;"></div>
+                    <div class="panel-heading text-center" style="background-color:black; color:white; width:50px"><b><font size = "7" font color ="lime">Fireball Altitude(km)</font></b></div>
+                    <div class= "panel-body">
+                    <div id="bullet1" ></div>
+                    <div id="bullet2" ></div>
+                    <div id="bullet3" ></div>
+                    <div id="gauge" ></div>
                 </div>
             </div>
         </div>
@@ -50,7 +56,7 @@
         <script>let m_years = "{{ m_years }}"; </script>
         <script>let m_count = "{{ m_count }}"; </script>
         <!-- <script src="./static/bubbles.js"></script> -->
-        <!-- <script src="./static/bullet.js"></script> -->
         <script src ="./static/barlogic.js"></script>
+        <script src="./static/bullet.js"></script>
     </body>
 </html>
