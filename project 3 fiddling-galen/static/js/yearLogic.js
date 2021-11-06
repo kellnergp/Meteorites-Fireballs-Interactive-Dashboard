@@ -87,12 +87,6 @@ function createMarkers(data) {
 }
 
 function createMap(layerList) {
-    // if the fireball map exists, remove it
-    //if (fireballMap) {fireballMap.remove();}
-   /*  var container = L.DomUtil.get('map-id');
-      if(container != null){
-        container._leaflet_id = null;
-      } */
 
     // Create the tile layer that will be the background of our map.
     var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -124,8 +118,6 @@ function createMap(layerList) {
     //console.log(meteoriteMap);
     // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
     L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(meteoriteMap); 
-
-    console.log("look here asshole", meteoriteMap);
 
     return meteoriteMap;
 }
