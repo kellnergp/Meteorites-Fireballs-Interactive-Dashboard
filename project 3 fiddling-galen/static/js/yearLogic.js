@@ -125,5 +125,7 @@ function createMap(layerList) {
     // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
     L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(meteoriteMap); 
 
+    console.log("look here asshole", meteoriteMap);
+
     return meteoriteMap;
 }

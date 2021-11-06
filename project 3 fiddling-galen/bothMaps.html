@@ -37,10 +37,10 @@
       <div class="map-m" id="map-id-m"></div>
       <div class="map-f" id="map-id-f"></div>
 
-  <script>
+ <!--  <script>
     var mMap;
     var fMap;
-  </script>
+  </script> -->
   <!-- js file for meteorite map layered by century -->
   <script type="text/javascript" src="static/js/yearLogic.js"></script>
   <!-- js file for expanded fireball map broken into decade layers-->
@@ -50,9 +50,8 @@
 
   <script>
 
-    mMap = getMeteorites();
-    fMap = getFireballs();
-    console.log(fMap);
+    var mMap = getMeteorites();
+    var fMap = getFireballs();
 
     function hideToggle(selectedMap, otherMap) {
       var selected = document.getElementById(selectedMap);
@@ -75,7 +74,7 @@
           other.style.display = "block";
           fbtitle.style.display = "block";
       }
-      console.log(mMap);
+
       }
 
 

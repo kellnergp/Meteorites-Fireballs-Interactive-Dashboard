@@ -3,7 +3,7 @@
 function getFireballs() {
 
     const csvPath = "../Resources/Fireball_Data_Years.csv";
-    const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/HTML%20Work/Resources/Cleaned_Fireball_Data_CNEOS.csv";
+    const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/Cleaned_Fireball_Data_CNEOS.csv";
 
     d3.csv(url).then(function(data){
         //console.log(data);
