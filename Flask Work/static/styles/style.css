@@ -1,14 +1,41 @@
 html,
-#map-id {
-    height: 100%;
-    padding: 0;
-    margin: 0;
+.map-m {
+  height: 100%;
+  max-width: 100%;
+  padding: 5;
+  margin: 5;
 }
+
 body{
     height: 100%;
-    padding: 0;
-    margin: 0;
+    max-width: 100%;
+    padding: 5;
+    margin: 5;
     background-color: black;
+}
+
+.map-f {
+    height: 100%;
+    max-width: 100%;
+    padding: 5;
+    margin: 5;
+    display: none;
+}
+
+#mtitle {
+    display:block;
+    color: lime;
+}
+#map-id-m {
+    display: block;
+}
+
+#map-id-f {
+    display:none;
+}
+#fbtitle {
+    display: none;
+    color: lime;
 }
 
 .panel {
