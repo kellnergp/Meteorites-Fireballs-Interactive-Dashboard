@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charstet="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Meteorites and Fireballs Data Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- Our CSS -->
-        <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
-        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    </head>
+<head>
+    <meta charstet="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meteorites and Fireballs Data Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="../static/styles/style.css"> -->
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 jumbotron text-center" style="background-color:black; color:white; width:100">
-                    <h1>Meteorites and Fireballs<br>Interactive Data Dashboard</h1>
-                    <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
-                    <a href="/map" class="btn btn-info btn-lg" role="button">Maps</a>
-                </div>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center" style="background-color:black; color:white; width:100">
+                <h1>Meteorites and Fireballs<br>Interactive Data Dashboard</h1>
+                <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
+                <a href="/map" class="btn btn-info btn-lg" role="button">Maps</a>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="bubble"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="plot"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="bullet"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="well">
+                    <h5>Select a Year:</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
                 </div>
             </div>
         </div>
-    
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
-        <script src="../static/bubbles.js"></script>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bubble1"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bubble2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="plot"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bullet"></div>
+            </div>
+        </div>
+    </div>
 
-    </body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <script src="../static/bubbles.js"></script>
+
+</body>
 </html>

@@ -1,78 +1,135 @@
-// Function for chosing Test Subject ID Number in dropdown menu (optionChanged)
-function optionChanged(idNum) {
-    console.log(idNum);
+// Function for chosing Year in dropdown menu (optionChanged)
+function optionChanged(select_year) {
+    console.log(select_year);
 
     // Read in fireball data with D3 library
-    d3.csv("./Resources/Cleaned_Fireball_Data_CNEOS.csv").then(function(data) {
+    const url_F = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/Fireball_Data_Years.csv";
+
+    d3.csv(url_F).then(function(data) {
         console.log(data);
-        // // Pull metadata values for matching subject ID Number
-        // metadata = Object.values(data.metadata.filter(function(findMeta) {
-        //     return findMeta.id.toString() == idNum;
-        // }));
-        // metadata = metadata[0];
-        // console.log(metadata);
 
-        // // Clear the Demographic Info under the "sample-metadata" ID, 
-        // // then fill it in using the entry's key-value pairs
-        // d3.select("#sample-metadata").html("");
-        // Object.entries(metadata).forEach(([key, value]) => {
-        //     d3.select("#sample-metadata").append("p").text(`${key}: ${value}`);
-        // });
+        var fireball_radiation = [];
+        var fireball_latlon = [];
 
-        // // Pull sample values for matching subject ID Number
-        // samples = Object.values(data.samples.filter(function(findSample) {
-        //     return findSample.id.toString() == idNum;
-        // }));
-        // samples = samples[0];
-        // console.log(samples);
+        for (var i=0; i<data.length; i++) {
+            var fireball = data[i];
 
-        // // Sort samples by sample_values in descending order
-        // samples.sample_values.sort(function sortFunction(a, b) {
-        //     return b - a;
-        // });
+            if (fireball['Peak Brightness Date/Time (UT)'] == select_year) {
+                fireball_radiation.push(fireball['Total Radiated Energy (J)']/1000000000);
+                fireball_latlon.push(`${fireball['Latitude (deg.)']}, ${fireball['Longitude (deg.)']}`)
+            }
 
-        // // Create bubble chart that displays each sample for the subject
-        // var bubbleChart = [{
-        //     x: samples.otu_ids,
-        //     y: samples.sample_values,
-        //     text: samples.otu_labels,
-        //     mode: "markers",
-        //     marker: {
-        //         size: samples.sample_values,
-        //         color: samples.otu_ids
-        //     }
-        // }];
+        }
 
-        // var layout = {
-        //     xaxis: {title: "OTU ID"},
-        //     title: "<b>Values of All OTUs</b>"
-        // };
+        var counter = 1;
+        var fireball_id = [];
 
-        // Plotly.newPlot("bubble", bubbleChart, layout);
-        
+        for (var i=0; i<fireball_radiation.length; i++) {
+            fireball_id.push(counter);
+            counter += 1;
+        }
+
+        var bubbleFireball = [{
+            x: fireball_id,
+            y: fireball_radiation,
+            text: fireball_latlon,
+            mode: "markers",
+            marker: {
+                size: fireball_radiation,
+                sizeref: 1,
+                sizemode: "area",
+                color: "red"
+            }
+        }];
+
+        var chartTitle_F = String(`Radiation of Fireballs from ${select_year}`);
+
+        var layout_F = {
+            yaxis: {title: "Total Radiated Energy (GJ)"},
+            title: "<b>" + chartTitle_F + "</b>"
+        };
+
+        Plotly.newPlot("bubble1", bubbleFireball, layout_F);
+
+    });
+
+    const url_M = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/Meteorite_Landings_Years.csv"
+
+    d3.csv(url_M).then(function(data) {
+        console.log(data);
+
+        var meteorite_mass = [];
+        var meteorite_name = [];
+
+        for (var i=0; i<data.length; i++) {
+            var meteorite = data[i];
+
+            if (meteorite['year'] == select_year) {
+                meteorite_mass.push(meteorite['mass (g)']/1000);
+                meteorite_name.push(meteorite['name'])
+
+            }
+
+        }
+
+        var meteorite_id = [];
+        var counter = 1;
+
+        for (var i=0; i<meteorite_mass.length; i++) {
+            meteorite_id.push(counter);
+            counter += 1;
+        }
+
+        var bubbleMeteorite = [{
+            x: meteorite_id,
+            y: meteorite_mass,
+            text: meteorite_name,
+            mode: "markers",
+            marker: {
+                size: meteorite_mass,
+                color: "blue"
+            }
+        }];
+
+        var chartTitle_M = String(`Mass of Meteorites from ${select_year}`);
+
+        var layout_M = {
+            yaxis: {title: "Mass (kg)"},
+            title: "<b>" + chartTitle_M + "</b>"
+        };
+
+        Plotly.newPlot("bubble2", bubbleMeteorite, layout_M);
+
     });
 
 }
 
-// Read in samples.jason with D3 library
-// d3.json("samples.json").then(function(data) {
-//     console.log(data);
+// Read in files with D3 library
+d3.csv("https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/year.csv").then(function(data) {
+    console.log(data);
 
-//     var dropdownMenu = d3.select("#selDataset");
+    var dropdownMenu = d3.select("#selDataset");
 
-//     // Create <option> elements for each ID number in "names"
-//     data.names.forEach(function(name) {
-//         dropdownMenu.append("option").text(name);
-//     });
+    // Create <option> elements for each year in "year"
+    for (var i=0; i<data.length; i++) {
+        var entry = data[i];
+        dropdownMenu.append("option").text(entry['year']);
+    }
     
-//     // Use optionChanged function to set default plots
-//     optionChanged("940");
+    // Use optionChanged function to set default plots
+    optionChanged("2021");
 
+});
+
+// const url_F = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/Fireball_Data_Years.csv";
+
+// const url_M = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/Meteorite_Landings_Years.csv"
+
+// d3.csv(url_F).then(function(data) {
+//     console.log(data);
 // });
 
-const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/HTML%20Work/Resources/Cleaned_Fireball_Data_CNEOS.csv";
+// d3.csv(url_M).then(function(data) {
+//     console.log(data);
+// });
 
-
-d3.csv(url).then(function(data) {
-    console.log(data);
-});
