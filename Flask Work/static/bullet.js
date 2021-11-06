@@ -48,18 +48,18 @@ function bullet(_year){
                 value: min,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
-                    text: "Min",
+                    text: "<b>Min</b>",
                         font: {
                         family: 'Courier New, monospace',
                         size: 18,
-                        color: 'red'
+                        color: 'black'
             },
                 },
                 bar:{color:'red'}
                 }
             ];
 
-         var layout = { width: 900, height: 250 };
+         var layout = { height: 250, title:"<b>Fireball Altitude (km)</b>" };
          var config = { responsive: true };
          Plotly.newPlot('bullet1', bullet1Data,  layout, config);
 
@@ -79,17 +79,17 @@ function bullet(_year){
                 value: mean,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
-                    text: "Mean",
+                    text: "<b>Mean</b>",
                         font: {
                         family: 'Courier New, monospace',
                         size: 18,
-                        color: 'red'
+                        color: 'black'
                     },
                 },
                 bar:{color:"red"}
                 }
             ];
-        var layout = { width: 900, height: 250 };
+        var layout = { height: 250 };
         var config = { responsive: true };
         Plotly.newPlot('bullet2', bullet2Data,  layout, config);                    
 
@@ -109,18 +109,18 @@ function bullet(_year){
                 value: max,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
-                    text: "Max",
+                    text: "<b>Max</b>",
                         font: {
                         family: 'Courier New, monospace',
                         size: 18,
-                        color: 'red'
+                        color: 'black'
                     },
                 },
                 bar:{color:"red"}
                 }
             ]; 
         
-        var layout = { width: 900, height: 250 };
+        var layout = { height: 250 };
         var config = { responsive: true };
         Plotly.newPlot('bullet3', bullet3Data, layout, config);
 
@@ -129,11 +129,11 @@ function bullet(_year){
             mode: "gauge+number",
             value: counts,
             title: { 
-                text: "Total Number of Fireballs",
+                text: "<b>Total Number of Fireballs</b>",
                     font: {
-                    family: 'Courier New, monospace',
+                    // family: 'Courier New, monospace',
                     size: 18,
-                    color: 'red'
+                    color: 'black'
                 },
             },
             //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
@@ -154,7 +154,7 @@ function bullet(_year){
             }
           }];
 
-          var layout = { width: 900, height: 900, margin:{ t: 25, r: 25, l: 25, b: 25 }, paper_bgcolor: "white", font: { color: "darkblue", family: "Arial" }};
+          var layout = { height: 900, margin:{ t: 50, r: 25, l: 25, b: 25 }, paper_bgcolor: "white", font: { color: "darkblue", family: "Arial" }};
           var config = { responsive: true };
           Plotly.newPlot('gauge', gaugeData, layout, config);
         

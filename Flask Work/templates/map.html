@@ -23,9 +23,9 @@
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="jumbotron text-center" style="background-color:black; color:white; width:100">
-            <h1>Meteorite/Fireball Map</h1>
+        <div class="jumbotron text-center typeface-js" style="background-color:black; color:white; width:100; font-family:'Qlassik Medium'; visibility: visible;">
+            <div class="container-fluid">
+            <h1>Meteorites and Fireballs</h1><h2>Interactive Maps</h2><p></p>
             <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
             <a href="/data" class="btn btn-info btn-lg" role="button">Data</a>
             <p></p>
@@ -33,11 +33,17 @@
             <!-- <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-f', 'map-id-m')" role="button">Fireballs</a></p> -->
             </div>
         </div>
-        <h1 id="mtitle">Meteorites</h1>
-        <h1 id="fbtitle">Fireballs</h1>
-          <!-- The div that holds our map -->
+        <div class="container">
+        <div class="typeface-js" style="font-family:'Qlassik Medium'; visibility: visible;">
+        <h1 class="text-center" id="mtitle">Meteorites</h1>
+        <h1 class="text-center" id="fbtitle">Fireballs</h1>
+        </div>
+        </div>
+        <!-- The div that holds our map -->
           <div class="map-m" id="map-id-m"></div>
           <div class="map-f" id="map-id-f"></div>
+
+
     
     
       <!-- js file for meteorite map layered by century -->
@@ -78,7 +84,6 @@
           }
     
     
-      </script>
-    
+      </script>  
     </body>    
 </html>

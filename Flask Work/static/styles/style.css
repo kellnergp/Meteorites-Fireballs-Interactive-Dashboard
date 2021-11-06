@@ -11,7 +11,7 @@ body{
     max-width: 100%;
     padding: 5;
     margin: 5;
-    background-color: black;
+    background-color: dimgrey;
 }
 
 .map-f {
@@ -24,26 +24,54 @@ body{
 
 #mtitle {
     display:block;
-    color: lime;
+    color: lightskyblue;
 }
 #map-id-m {
     display: block;
+    width: 100%;
 }
 
 #map-id-f {
     display:none;
+    width: 100%;
 }
 #fbtitle {
     display: none;
-    color: lime;
+    color: lightskyblue;
 }
 
 .panel {
     border: 0;
+    background-color: dimgrey;
 }
 .panel-body {
     border: 0;
+    background-color: dimgrey;
 }
 .panel-heading {
     border: 0;
+    background-color: dimgrey;
+}
+.panel-default {
+    background-color: dimgrey;
+}
+
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 35px;
+}
+p{
+    font-size: 30px;
+}
+img{
+    width: 100%;
+}
+footer{
+    color:lightskyblue;
+    font-weight: bolder;
+}
+a{
+    color:white;
 }

@@ -11,15 +11,15 @@
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
 
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 jumbotron text-center" style="background-color:black; color:white; width:100">
-                    <h1>Meteorites and Fireballs<br>Interactive Data Dashboard</h1>
-                    <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
-                    <a href="/map" class="btn btn-info btn-lg" role="button">Maps</a>
-                </div>
+    <body>       
+        <div class="col-md-12 jumbotron text-center typeface-js" style="background-color:black; color:white; width:100; font-family:'Qlassik Medium'; visibility: visible;">
+            <div class="container">
+                <h1>Meteorites and Fireballs</h1><h2>Interactive Data Dashboard</h2><p></p>
+                <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
+                <a href="/map" class="btn btn-info btn-lg" role="button">Maps</a>
             </div>
+        </div>
+        <div class="container">
             <div class="row">
                 <div class="col-md-2">
                     <div class="well">
@@ -47,13 +47,14 @@
                 </div>
             </div>
             <div class="row">
-                <div id="column1" class="col-md-auto">
-                    <div class="panel panel-default" style="width:50px; height:50px; float:left; margin-left: 10px; background-color:black; color:white;"></div>
-                    <div class="panel-heading text-center" style="background-color:black; color:white; width:50px"><b><font size = "7" font color ="lime">Fireball Altitude(km)</font></b></div>
-                    <div class= "panel-body">
+                <div class="col-md-12">
+                    <!-- <div class="panel panel-default" style="width:50px; height:50px; float:left; margin-left: 10px; background-color:black; color:white;"></div>
+                    <div class="panel-heading text-center typeface-js" style="background-color:grey; color:white; width:100; font-family:'Qlassik Medium'; visibility: visible;"><h1>Fireball Altitude(km)</h1></div>
+                    <div class= "panel-body"> -->
                     <div id="bullet1" ></div>
                     <div id="bullet2" ></div>
                     <div id="bullet3" ></div>
+                    <p></p>
                     <div id="gauge" ></div>
                 </div>
             </div>
