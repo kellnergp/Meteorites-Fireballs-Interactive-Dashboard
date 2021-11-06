@@ -23,11 +23,45 @@
     <body>
         <div class="jumbotron text-center" style="background-color:black; color:white; width:100">
             <div class="container">
-                <h1>{{textheader}}</h1>
+                <h1>Mapped Sightings</h1>
+                <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
+                <a href="/data" class="btn btn-info btn-lg" role="button">Data</a>
             </div>
         </div>
+
         <!-- The div that holds our map -->
-        <div id="map-id"></div>
-        <!-- Our JavaScript file -->
-        <!-- <script type="text/javascript" src="static/js/logic.js"></script> -->
+
+        <div class="row"
+            <div id="column1" class="col-md-auto">
+                <div class="panel panel-default" style="width:100%; height:1000px; float:left; margin-left: 10px; background-color:black; color:white;">
+                    <div class="panel-heading text-center" style="background-color:black; color:white; width:100"><b><font size = "7" font color ="lime">Meterorite Landings</font></b></div>
+                        <div class= "panel-body">
+                            
+                            <div id="map-id" style="width:100%; height:900px;"></div>    
+                                
+                            <script src="{{url_for('static', filename='logic.js') }}"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+                            </div>
+                        </div>
+                    </div>    
+                </div>        
+            </div>
+        </br>
+        </div>
+
+        <!--<div class="row"
+            <div id="column2" class="col-md-auto">
+                <div class="panel panel-default" style="width:100%; height:900px; float:left; margin-left: 10px; background-color:black; color:white;">
+                    <div class="panel-heading text-center" stylurl_forle="background-color:black; color:white; width:100"><b><font size = "7" font color ="lime">Fireballs</font></b></div>
+                    <div class= "panel-body">
+                        <script type="text/javascript" src="static/logic.js"></script>
+                    </div>
+                </div>        
+            </div>-->
+        </br>
+        </div>
+        <!--<script src="{{url_for('static', filename='../logic.js') }}"></script>-->
+
+
+    </body>    
 </html>
