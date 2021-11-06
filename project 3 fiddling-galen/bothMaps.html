@@ -53,6 +53,7 @@
     var mMap = getMeteorites();
     var fMap = getFireballs();
 
+
     function hideToggle(selectedMap, otherMap) {
       var selected = document.getElementById(selectedMap);
       var other = document.getElementById(otherMap);
@@ -74,7 +75,7 @@
           other.style.display = "block";
           fbtitle.style.display = "block";
       }
-
+      window.dispatchEvent(new Event('resize'));
       }
 
 
