@@ -185,9 +185,9 @@ function init() {
        
 }
         //function for change in dropdown
-function optionChanged(new_year) {
-        bullet(new_year);
-}
+// function optionChanged(new_year) {
+//         bullet(new_year);
+// }
 
 init();
 //function init() {
