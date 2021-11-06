@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charstet="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Meteorites and Fireballs Map Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- D3 library -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <!-- Leaflet JavaScript code -->
+        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin=""/>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+    </head>
+
+    <body>
+        <div class="jumbotron text-center typeface-js" style="background-color:black; color:white; width:100; font-family:'Qlassik Medium'; visibility: visible;">
+            <div class="container-fluid">
+            <h1>Meteorites and Fireballs</h1><h2>Interactive Maps</h2><p></p>
+            <a href="/" class="btn btn-info btn-lg" role="button">Home</a>
+            <a href="/data" class="btn btn-info btn-lg" role="button">Data</a>
+            <p></p>
+            <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-m', 'map-id-f')" role="button">Toggle Meteorites/Fireballs</a></p>
+            <!-- <p><a class="btn btn-primary btn-lg" onclick="hideToggle('map-id-f', 'map-id-m')" role="button">Fireballs</a></p> -->
+            </div>
+        </div>
+        <div class="container">
+        <div class="typeface-js" style="font-family:'Qlassik Medium'; visibility: visible;">
+        <h1 class="text-center" id="mtitle">Meteorites</h1>
+        <h1 class="text-center" id="fbtitle">Fireballs</h1>
+        </div>
+        </div>
+        <!-- The div that holds our map -->
+          <div class="map-m" id="map-id-m"></div>
+          <div class="map-f" id="map-id-f"></div>
+
+
+    
+    
+      <!-- js file for meteorite map layered by century -->
+      <script type="text/javascript" src="static/yearLogic.js"></script>
+      <!-- js file for expanded fireball map broken into decade layers-->
+      <script type="text/javascript" src="static/csvFbYearLogic.js"></script>
+      <!-- Leaflet Color Markings Script -->
+      <script type="text/javascript" src="static/leaflet-color-markers.js"></script>
+    
+      <script>
+    
+        var mMap = getMeteorites();
+        var fMap = getFireballs();
+    
+    
+        function hideToggle(selectedMap, otherMap) {
+          var selected = document.getElementById(selectedMap);
+          var other = document.getElementById(otherMap);
+    
+          var mtitle = document.getElementById("mtitle");
+          var fbtitle = document.getElementById("fbtitle");
+    
+          if (selected.style.display === "none") {
+              selected.style.display = "block";
+              mtitle.style.display = "block";
+    
+              other.style.display = "none";
+              fbtitle.style.display = "none";
+    
+          } else {
+              selected.style.display = "none";
+              mtitle.style.display = "none";
+    
+              other.style.display = "block";
+              fbtitle.style.display = "block";
+          }
+          window.dispatchEvent(new Event('resize'));
+          }
+    
+    
+      </script>  
+    </body>    
+</html>

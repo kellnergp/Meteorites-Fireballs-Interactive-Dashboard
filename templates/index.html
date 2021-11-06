@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charstet="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Meteorites and Fireballs Homepage</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+        <script type="text/javascript" src="js/typeface-0.10.js"></script>
+        <script type="text/javascript" src="js/optimer_regular.typeface.js"></script>
+        <script type="text/javascript" src="js/qlassik_medium_regular.typeface.js"></script>
+    </head>
+
+    <body>
+        <div class="jumbotron text-center typeface-js" style="background-color:black; color:white; width:100; font-family:'Qlassik Medium'; visibility: visible;">
+            <div class="container">
+                <h1>Meteorites and Fireballs</h1><h2>Overview</h2><p></p>
+                <a href="/data" class="btn btn-info btn-lg" role="button">Data</a>
+                <!--<a href="data.html" class="btn btn-info btn-lg" role="button">Data</a>-->
+                <a href="/map" class="btn btn-info btn-lg" role="button">Maps</a>
+                <!--<a href="map.html" class="btn btn-info btn-lg" role="button">Maps</a>-->
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-12">
+          <h1></h1>
+        </div>
+        </div>
+        <div class="row">
+          <div id="column1" class="col-sm-6">
+            <div class="panel panel-default" style="float:right; margin-left: 20px; margin-right:40px; color:white;">
+
+              <div class="panel-heading text-center typeface-js" style="background-color: dimgrey; color: lightskyblue; font-family:'Qlassik Medium'; visibility: visible;">
+                <h1>What is a meteor?</h1>
+                <p>A space rock that becomes so hot it glows when it passes into Earth’s atmosphere.</p>
+                <br>
+                <h1>What is a meteorite?</h1>
+                <p>A meteor that survives a trip through the atmosphere and hits the ground.</p>
+              </div>
+              <div class= "panel-body">
+                <img src="{{url_for('static', filename='meteorite.jpg')}}" atl="Meteorite image">
+              </div>
+            </br>
+            </div>
+          </div>
+          <div id="column2" class="col-sm-6">
+            <div class="panel panel-default" style="float:left; margin-right: 20px; margin-left:40px; color:white;">
+              <div class="panel-heading text-center typeface-js" style="background-color: dimgrey; color:lightskyblue; font-family:'Qlassik Medium'; visibility: visible;">
+                <h1>What is a fireball?</h1>
+                <p>An exceptionally bright meteor that is spectacular enough to to be seen over a very wide area (also known as bolides).</p>
+                <br>
+              </div>
+              <div class= "panel-body">
+                <img src="{{url_for('static', filename='fireball.jpg')}}" atl="Fireball image">
+              </div>
+              </br>
+            </div>
+          </div>
+        </div>
+        <footer class="text-center">
+            <b><h3>Data gathered for this dashboard derived from <a href="https://data.nasa.gov">data.nasa.gov</a> and <a href="https://cneos.jpl.nasa.gov">cneos.jpl.nasa.gov</a>.</h3></b>
+        </footer>
+
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    </body>
+</html>
