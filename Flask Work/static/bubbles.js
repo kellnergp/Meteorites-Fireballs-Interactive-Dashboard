@@ -101,7 +101,9 @@ function optionChanged(select_year) {
         Plotly.newPlot("bubble2", bubbleMeteorite, layout_M);
 
     });
-
+    // Call bargraph and bullet graph creation functions
+    bargraph(select_year);
+    bullet(select_year);
 }
 
 // Read in files with D3 library

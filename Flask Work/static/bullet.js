@@ -181,7 +181,7 @@ function init() {
     // // call the functions to display the data and the plots to the page
     //     var first_year = currentYear;
     //         bullet(first_year);
-    bullet(2011);
+    bullet(2021);
        
 }
         //function for change in dropdown

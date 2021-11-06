@@ -44,4 +44,4 @@ function bargraph(year) {
 
 }
 
-bargraph(2001);
+bargraph(2021);
