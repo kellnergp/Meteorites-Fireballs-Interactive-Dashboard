@@ -12,28 +12,30 @@ function bullet(_year){
 
 
         for (let i=0; i<data.length; i++) {
-                var fireballs = data[i];
+            var fireballs = data[i];
+            if(fireballs.year == _year){
                 console.log(fireballs);
+                var min = fireballs.Alt_min_km;
+                var mean = fireballs.Alt_mean_km;
+                var max = fireballs.Alt_max_km;
+                var counts = fireballs.fb_count;
+                var year = fireballs.year;
+            }
+            else{
 
-                
-                 var min = fireballs.Alt_min_km;
-                 var mean = fireballs.Alt_mean_km;
-                 var max = fireballs.Alt_max_km;
-                 var year = fireballs.year;
-               
-           
+            }
         }    
         
-            
             console.log(min);
             console.log(mean);
             console.log(max);
+            console.log(counts);
             console.log(year);
 
             var bullet1Data = [
                 {
                 type: "indicator",
-                mode: "number+gauge+delta",
+                mode: "number+gauge",
                 gauge: { 
                     shape: "bullet", 
                     axis: {range:[null, 100]},
@@ -42,7 +44,7 @@ function bullet(_year){
                         {range:[50,100], color:"orange"}
                     ]
                 },
-                delta: { reference: 50 },
+                // delta: { reference: 50 },
                 value: min,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
@@ -64,7 +66,7 @@ function bullet(_year){
              var bullet2Data = [
                 {
                 type: "indicator",
-                mode: "number+gauge+delta",
+                mode: "number+gauge",
                 gauge: { 
                     shape: "bullet", 
                     axis: {range:[null, 100]},
@@ -73,7 +75,7 @@ function bullet(_year){
                         {range:[50,100], color:"orange"}
                     ]
                 },
-                delta: { reference: 50 },
+                // delta: { reference: 50 },
                 value: mean,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
@@ -94,7 +96,7 @@ function bullet(_year){
             var bullet3Data = [
                 {
                 type: "indicator",
-                mode: "number+gauge+delta",
+                mode: "number+gauge",
                 gauge: { 
                     shape: "bullet", 
                     axis: {range:[null, 100]},
@@ -103,7 +105,7 @@ function bullet(_year){
                         {range:[50,100], color:"orange"}
                     ]
                 },
-                delta: { reference: 50 },
+                // delta: { reference: 50 },
                 value: max,
                 domain: { x: [0,1], y: [0, 1] },
                 title: { 
@@ -121,6 +123,40 @@ function bullet(_year){
         var layout = { width: 900, height: 250 };
         var config = { responsive: true };
         Plotly.newPlot('bullet3', bullet3Data, layout, config);
+
+        var gaugeData = [{
+            type: "indicator",
+            mode: "gauge+number",
+            value: counts,
+            title: { 
+                text: "Total Number of Fireballs",
+                    font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: 'red'
+                },
+            },
+            //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+            gauge: {
+              axis: { range: [null, 30], tickwidth: 1, tickcolor: "darkblue" },
+              bar: { color: "yellow" },
+              bgcolor: "white",
+              borderwidth: 2,
+              bordercolor: "gray",
+              steps: [
+                { range: [0,5], color: 'rgb(165,0,38)'},
+                { range: [5,10], color: 'rgb(215,48,39)'},
+                { range: [10,15], color: 'rgb(244,109,67)'},
+                { range: [15,20], color: 'rgb(253,174,97)'},
+                { range: [20,25], color: 'rgb(254,224,144)'},
+                { range: [25,30], color: 'rgb(224,243,248)'}
+             ],
+            }
+          }];
+
+          var layout = { width: 900, height: 900, margin:{ t: 25, r: 25, l: 25, b: 25 }, paper_bgcolor: "white", font: { color: "darkblue", family: "Arial" }};
+          var config = { responsive: true };
+          Plotly.newPlot('gauge', gaugeData, layout, config);
         
     });
 }        
@@ -128,23 +164,24 @@ function bullet(_year){
 function init() {
         
 
-    let dateDropdown = document.getElementById('date-dropdown');
+    // let dateDropdown = document.getElementById('date-dropdown');
 
-    let currentYear = new Date().getFullYear();
-    let earliestYear = 1900;
+    // let currentYear = new Date().getFullYear();
+    // let earliestYear = 1900;
 
-    while (currentYear >= earliestYear) {
-      let dateOption = document.createElement('option');
-      dateOption.text = currentYear;
-      dateOption.value = currentYear;
-      dateDropdown.add(dateOption);
-      currentYear -= 1;
-    }
+    // while (currentYear >= earliestYear) {
+    //   let dateOption = document.createElement('option');
+    //   dateOption.text = currentYear;
+    //   dateOption.value = currentYear;
+    //   dateDropdown.add(dateOption);
+    //   currentYear -= 1;
+    // }
 
 
-    // call the functions to display the data and the plots to the page
-        var first_year = currentYear;
-            bullet(first_year);
+    // // call the functions to display the data and the plots to the page
+    //     var first_year = currentYear;
+    //         bullet(first_year);
+    bullet(2011);
        
 }
         //function for change in dropdown

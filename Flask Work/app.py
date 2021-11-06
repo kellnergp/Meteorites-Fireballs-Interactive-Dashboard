@@ -10,8 +10,8 @@ app = Flask(__name__)
 textheader = "Meteorites and Fireballs"
 
 # Read CSVs into dictionaries
-meteorite_data = pd.read_csv("Resources/Meteorite_Landings.csv")
-fireball_data = pd.read_csv("Resources/Fireball_And_Bolide_Reports.csv")
+meteorite_data = pd.read_csv("Resources/Meteorite_Landings_Years.csv")
+fireball_data = pd.read_csv("Resources/Fireball_Data_Years.csv")
 meteorite_count = pd.read_csv("Resources/Meteorites_Count.csv")
 
 # Setup mongo connection
