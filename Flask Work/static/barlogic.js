@@ -30,7 +30,7 @@ function bargraph(year) {
     let traceData = [trace];
     // Apply title to the layout
     let layout = {
-        title: "Meteorites per Year",
+        title: "<b>Meteorites per Year</b>",
         xaxis: {
             title: "Year",
             type: "category"
