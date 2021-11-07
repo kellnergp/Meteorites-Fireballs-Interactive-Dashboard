@@ -10,8 +10,8 @@ app = Flask(__name__)
 textheader = "Meteorites and Fireballs"
 
 # Read CSVs into dictionaries
-meteorite_data = pd.read_csv("Resources/Meteorite_Landings_Years.csv")
-fireball_data = pd.read_csv("Resources/Fireball_Data_Years.csv")
+# meteorite_data = pd.read_csv("Resources/Meteorite_Landings_Years.csv")
+# fireball_data = pd.read_csv("Resources/Fireball_Data_Years.csv")
 meteorite_count = pd.read_csv("Resources/Meteorites_Count.csv")
 
 # Setup mongo connection
@@ -19,14 +19,14 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/meteorite_app"
 mongo = PyMongo(app)
 
 # Populate mongo database
-meteorite_dict = mongo.db.meteorite_dict
-fireball_dict = mongo.db.fireball_dict
+# meteorite_dict = mongo.db.meteorite_dict
+# fireball_dict = mongo.db.fireball_dict
 meteorite_count_dict = mongo.db.meteorite_count_dict
-meteorite_dict.delete_many({})
-fireball_dict.delete_many({})
+# meteorite_dict.delete_many({})
+# fireball_dict.delete_many({})
 meteorite_count_dict.delete_many({})
-meteorite_dict.insert_many(meteorite_data.to_dict('records'))
-fireball_dict.insert_many(fireball_data.to_dict('records'))
+# meteorite_dict.insert_many(meteorite_data.to_dict('records'))
+# fireball_dict.insert_many(fireball_data.to_dict('records'))
 meteorite_count_dict.insert_many(meteorite_count.to_dict('records'))
 
 # Pull data from mongo database for use
