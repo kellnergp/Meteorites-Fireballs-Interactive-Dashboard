@@ -10,7 +10,6 @@ function getMeteorites() {
     });
 }
 function createMarkers(data) {
-    var markers = [];
     var pre17Markers = [];
     var c17Markers = [];
     var c18Markers = [];
@@ -34,44 +33,37 @@ function createMarkers(data) {
             var longitude = Number(meteorite.geolocation.longitude);
             var location = [latitude, longitude];
 
-            /* var marker = L.marker(location, {icon: greenIcon})
-                .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>"); */
 
-            //markers.push(marker);
+            // define a string for the popup that can be used in each if-case
+            var popupStr = "<h3>Year: " + justYear + "</h3><h3>Name: " + name + "</h3><h3>Location: " + location + 
+                "</h3><h3>Mass(g): " + mass + "</h3>";
 
             // divy up markers into different lists based on year
             if (justYear < 1700) {
-                    var marker = L.marker(location, {icon: greenIcon})
-                        .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                    var marker = L.marker(location, {icon: greenIcon}).bindPopup(popupStr);
                     pre17Markers.push(marker);
             }
             else if (justYear >= 1700 && justYear < 1800) {
-                var marker = L.marker(location, {icon: yellowIcon})
-                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                var marker = L.marker(location, {icon: yellowIcon}).bindPopup(popupStr);
                 c17Markers.push(marker);
             }
             else if (justYear >= 1800 && justYear < 1900) {
-                var marker = L.marker(location, {icon: blueIcon})
-                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                var marker = L.marker(location, {icon: blueIcon}).bindPopup(popupStr);
                 c18Markers.push(marker);
             }
             else if (justYear >= 1900 && justYear < 2000) {
-                var marker = L.marker(location, {icon: orangeIcon})
-                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                var marker = L.marker(location, {icon: orangeIcon}).bindPopup(popupStr);
                 c19Markers.push(marker);
             }
             else if (justYear >= 2000) {
-                var marker = L.marker(location, {icon: redIcon})
-                    .bindPopup("<h3>" + name + "</h3><h3>Mass: " + mass + "</h3><h3>Year: " + justYear + "</h3>");
+                var marker = L.marker(location, {icon: redIcon}).bindPopup(popupStr);
                 c20Markers.push(marker);
             }
         }
 
         
     }
-    //console.log(markers);
-    //var markerLayer = L.layerGroup(markers);
-    //console.log(markerLayer);
+
 
     // create marker layers for each century
     pre17Layer = L.layerGroup(pre17Markers);
@@ -83,6 +75,7 @@ function createMarkers(data) {
     // collect layers into an array
     layerList = [pre17Layer, c17Layer, c18Layer, c19Layer, c20Layer];
 
+    // call the mapping function with list of marker layers as input
     createMap(layerList);
 }
 
