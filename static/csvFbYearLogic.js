@@ -8,10 +8,6 @@ function getFireballs() {
     d3.csv(url).then(function(data){
         //console.log(data);
 
-        /* for (let i=0; i<data.length; i++) {
-            var fireball = data[i];
-            console.log(i, typeof fireball['Latitude (deg.)'], typeof fireball['Longitude (deg.)']);
-        } */
         createFbMarkers(data);
     });
 }
@@ -73,44 +69,29 @@ function createFbMarkers(data) {
         var justYear = date.getFullYear();
         //console.log(typeof justYear);
 
+        // define popup string that can be used in each if-case
+        var popupStr = "<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
+            + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>";
+
         // conditionals to divide markers by decade
         if (justYear < 2000) {
-            var marker = L.marker(location, {icon: greenIcon})
-                .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
-                    + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
+            var marker = L.marker(location, {icon: greenIcon}).bindPopup(popupStr);
             d90sMarkers.push(marker);
         }
         else if (justYear >= 2000 && justYear < 2010) {
-            var marker = L.marker(location, {icon: blueIcon})
-                .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
-                    + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
+            var marker = L.marker(location, {icon: blueIcon}).bindPopup(popupStr);
             d00sMarkers.push(marker);
         }
         else if (justYear >= 2010 && justYear < 2020) {
-            var marker = L.marker(location, {icon: violetIcon})
-                .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
-                    + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
+            var marker = L.marker(location, {icon: violetIcon}).bindPopup(popupStr);
             d10sMarkers.push(marker);
         }
         else if (justYear >= 2020 && justYear < 2030) {
-            var marker = L.marker(location, {icon: redIcon})
-                .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
-                    + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
+            var marker = L.marker(location, {icon: redIcon}).bindPopup(popupStr);
             d20sMarkers.push(marker);
-        }
-
-        /* var marker = L.marker(location)
-            .bindPopup("<h3>Date:" + date + "</h3><h3>Location: " + rawLat + ", " + rawLng + "</h3><h3>Total Radiated Energy (J): " 
-                + radiated + "</h3><h3>Velocity (km/s): " + velocity + "</h3>");
-
-        markers.push(marker); */
-
-        
-        
+        }       
     }
-    //console.log(markers);
 
-    //var markerLayer = L.layerGroup(markers);
     // create markerlayer for each decade
     var d90Layer = L.layerGroup(d90sMarkers);
     var d00Layer = L.layerGroup(d00sMarkers);
