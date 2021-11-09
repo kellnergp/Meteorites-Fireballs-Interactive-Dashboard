@@ -36,7 +36,8 @@ function bargraph(year) {
             type: "category"
         },
         yaxis: {
-            title: "Meteorites"
+            title: "Meteorites",
+            range: [1, 3500]
         }
     };
     // Render the plot to the div tag with id "plot"
