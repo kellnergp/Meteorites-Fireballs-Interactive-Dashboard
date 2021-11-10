@@ -1,8 +1,8 @@
 const csvPath = "../Resources/fb_altitude.csv";
-const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/HTML%20Work/Resources/fb_altitude.csv";
+const url = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/fb_altitude.csv";
 
 const csvPath2 = "../Resources/year.csv";
-const url2 = "https://raw.githubusercontent.com/kellnergp/Project-3/main/HTML%20Work/Resources/year.csv";
+const url2 = "https://raw.githubusercontent.com/kellnergp/Project-3/main/Resources/year.csv";
 
 
 
