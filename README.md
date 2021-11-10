@@ -1,4 +1,8 @@
-# Project-3
+# Meteorites and Fireballs Interactive Dashboard
+
+## Overview
+
+
 
 App deployed: https://teamprojectmeteorites.herokuapp.com/
 
@@ -29,3 +33,9 @@ Link: https://github.com/kellnergp/Project-3/tree/main/images
 ### Non-API Data
 
 Link: https://github.com/kellnergp/Project-3/tree/main/Resources
+
+## Tools Used
+
+
+
+## Contacts
