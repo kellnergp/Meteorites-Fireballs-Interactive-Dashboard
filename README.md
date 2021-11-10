@@ -2,7 +2,9 @@
 
 ## Overview
 
+NASA and the CNEOS have publicly available datasets on the occurences of meteorites and fireballs.  This project focused on gathering, processing, and presenting the information in ways that illustrate trends in observations of atmospheric objects over the past several centuries.
 
+The dashboard is managed via a Python Flask app while charts were generated with the Plot.ly JS library, and maps of meteorites and fireballs were created with the Leaflet JS library.
 
 App deployed: https://teamprojectmeteorites.herokuapp.com/
 
