@@ -12,6 +12,8 @@ Version which can be deployed on a local host: https://github.com/kellnergp/Mete
 
 Version which can be deployed online: https://github.com/josephmarch/Meteorites-Fireballs-Interactive-Dashboard
 
+[![webpagesample](/images/DashboardHomepage.png)](https://teamprojectmeteorites.herokuapp.com/)
+
 ## Deployment Version
 
 Deployment versions of all files and folders available at root.
